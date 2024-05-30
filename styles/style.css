@@ -15,7 +15,6 @@
   display: grid;
   position: relative;
   padding-block-end: var(--header-padding,clamp(6.625rem, -1.5453rem + 34.8601vw, 15.1875rem));
-  block-size: 100vb;
 }
 
 .decorated-zone::before {
@@ -228,7 +227,6 @@
   justify-items: center;
   align-items: center;
   padding-block: var(--footer-padding-block-start,clamp(17.875rem, 7.3192rem + 45.0382vw, 28.9375rem)) var(--footer-padding-block-end,clamp(17.1875rem, 7.2281rem + 42.4936vw, 27.625rem));
-  block-size: 100vb;
 }
 
 .footer_title {
