@@ -17,14 +17,12 @@
   --font-size-big: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   --line-height-normal: 130%;
   --page-padding: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
-  --header-inset-decoration: clamp(38.9375rem, 18.8993rem + 85.4962vw, 59.9375rem);
   --header-padding: clamp(6.625rem, -1.5453rem + 34.8601vw, 15.1875rem);
-  --header__theme-menu-padding: clamp(3.9375rem, -2.4437rem + 27.2265vw, 10.625rem);
-  --header__title-padding: clamp(4.125rem, -2.3158rem + 27.4809vw, 10.875rem);
-  --header__title-padding-end: clamp(3.5rem, -2.8216rem + 26.972vw, 10.125rem);
   --section-gap: clamp(3.125rem, 1.3359rem + 7.6336vw, 5rem);
-  --gallery-padding:clamp(2.5rem, 1.3073rem + 5.0891vw, 3.75rem);
-  --footer-padding-block-start: clamp(17.875rem, 7.3192rem + 45.0382vw, 28.9375rem);
-  --footer-padding-block-end: clamp(17.1875rem, 7.2281rem + 42.4936vw, 27.625rem);
-  
+}
+
+@media (width >= 1024px) {
+  :root {
+    --font-size-big: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    } 
 }

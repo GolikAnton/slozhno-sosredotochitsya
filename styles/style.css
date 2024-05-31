@@ -3,18 +3,23 @@
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   display: grid;
+  gap: calc(20px + var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
   background: var(--bg-color,#000028) var(--bg-url,url(../images/cover-image-dark.png)) no-repeat fixed center / cover;
-  font-family: var(--main-font,sans-serif);
+  font-family: var(--main-font,'IBM Plex mono'), monospace;
   font-size: var(--font-size-normal,18px);
   line-height: var(--line-height-normal,130%);
   color: var(--main-text-color,#F1B2CE);
-  padding: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem))
-  }
+ }
 
 .header {
   display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  justify-items: end;
+  align-items: center;
+  block-size: 100vh;
+  min-block-size: 668px;
+  padding: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
   position: relative;
-  padding-block-end: var(--header-padding,clamp(6.625rem, -1.5453rem + 34.8601vw, 15.1875rem));
 }
 
 .decorated-zone::before {
@@ -24,8 +29,8 @@
   block-size: 25px;
   border-inline-end: 1px solid var(--decor-color,#FF0070);
   border-block-start: 1px solid var(--decor-color,#FF0070);
-  inset-inline-end: 0;
-  inset-block-start: 0;
+  inset-inline-end: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
+  inset-block-start: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
 }
 
 .decorated-zone::after {
@@ -35,16 +40,16 @@
   block-size: 25px;
   border-inline-start: 1px solid var(--decor-color,#FF0070);
   border-block-end: 1px solid var(--decor-color,#FF0070);
-  inset-inline-start: 0;
-  inset-block-start: var(--header-inset-decoration,clamp(38.9375rem, 18.8993rem + 85.4962vw, 59.9375rem));
+  inset-inline-start: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
+  inset-block-end: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
 }
 
 
 .header__decoration {
   display: flex;
   position: absolute;
-  inset-inline-end: 10px;
-  inset-block-start: 0px;
+  inset-inline-end: calc(10px + var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)));
+  inset-block-start: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
   align-items: center;
   gap: 10px;
   visibility: var(--decoration-visibility, visible);
@@ -68,8 +73,7 @@
 .header__theme-menu {
   display: flex;
   justify-content: end;
-  padding-inline-end: 2px;
-  padding-block-start: var(--header__theme-menu-padding,clamp(3.9375rem, -2.4437rem + 27.2265vw, 10.625rem));
+  margin-block-start:-2px ;
 }
 
 .header__theme-menu-list {
@@ -82,7 +86,7 @@
 .header__theme-menu-button {
   vertical-align: middle;
   border: none;
-  padding: 2px 11px;
+  padding: 2px 13px;
   font-size: inherit;
   line-height: 1em;
   color: var(--decor-color, #ff0070);
@@ -110,20 +114,18 @@
 }
 
 .header__title {
+  justify-self: start;
   color: var(--header__title-color, #DB00FF);
   font-size: var(--font-size-big, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
   font-weight: bold;
   text-shadow: 4px 4px 0 var(--accent-color,#ff0070);
   line-height: 82.5%;
-  padding-block-start: var(--header__title-padding,clamp(4.125rem, -2.3158rem + 27.4809vw, 10.875rem));
-  padding-block-end: var(--header__title-padding-end,clamp(3.5rem, -2.8216rem + 26.972vw, 10.125rem));
 }
 
 .title {
   font-size: inherit;
   font-weight: bold;
   line-height: inherit;
-  inline-size: 100%;
   color: var(--title-color,#000028);
 }
 
@@ -141,6 +143,7 @@
 .content_section {
   display: flex;
   flex-direction: column;
+  padding: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
   gap: var(--section-gap,clamp(3.125rem, 1.3359rem + 7.6336vw, 5rem));
 }
 
@@ -178,7 +181,7 @@
   line-height: inherit;
   color: inherit;
   text-decoration: none;
-  text-shadow: 2px 1px 0 var(--accent-color,#FF0070);
+  text-shadow: 2px 2px 0 var(--accent-color,#FF0070);
 }
 
 .text-link:focus {
@@ -194,7 +197,7 @@
 }
 
 .paragraph-title {
-  margin-block-start: 12px;
+  margin-block-start: 10px;
   font-size: inherit;
   font-weight: normal;
   line-height: inherit;
@@ -210,7 +213,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  padding-block-end: var(--gallery-padding,clamp(2.5rem, 1.3073rem + 5.0891vw, 3.75rem));
 }
 
 .image {
@@ -226,7 +228,8 @@
   position: relative;
   justify-items: center;
   align-items: center;
-  padding-block: var(--footer-padding-block-start,clamp(17.875rem, 7.3192rem + 45.0382vw, 28.9375rem)) var(--footer-padding-block-end,clamp(17.1875rem, 7.2281rem + 42.4936vw, 27.625rem));
+  block-size: 100vh;
+  min-block-size: 668px;
 }
 
 .footer_title {
@@ -237,29 +240,6 @@
   color: var(--header__title-color, #DB00FF);
   text-shadow: 2px 2px 0 var(--accent-color,#FF0070);
 }
-
-.footer::before {
-  content: "";
-  position: absolute;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-end: 1px solid var(--decor-color,#FF0070);
-  border-block-start: 1px solid var(--decor-color,#FF0070);
-  inset-inline-end: 0;
-  inset-block-start: var(--page-padding,clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem));
-}
-
-.footer::after {
-  content: "";
-  position: absolute;
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-start: 1px solid var(--decor-color,#FF0070);
-  border-block-end: 1px solid var(--decor-color,#FF0070);
-  inset-inline-start: 0;
-  inset-block-end: 0;
-}
-
 
 @media (768px <= width < 1024px) {
   .header__title {
@@ -274,7 +254,6 @@
   .main__content-why {
     display: grid;
     grid-template-columns: 236px auto;
-    grid-template-rows: repeat(1,auto);
   }
   
   .main__content_text {
@@ -318,20 +297,9 @@
 }
 
 @media (width >= 1024px) {
-  :root {
-    --font-size-big: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    --header__theme-menu-padding: 0;
-    --header__title-padding: 273px;
-    --header__title-padding-end: 114px;
-    --header-padding: 194px;
-    --header-inset-decoration:703px;
-    --footer-padding-block-start: 319px;
-    --footer-padding-block-end: 300px;
-  } 
-  
   .header__theme-menu {
-    justify-content: center;
-    padding-inline-end: 0px;
+    justify-self: center;
+    align-self: start;
   }
 
   .header__theme-menu-list {
